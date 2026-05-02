@@ -45,11 +45,8 @@ export default function HotelDetailsPage({ params }: PageProps) {
   };
 
   const getIconComponent = (iconName: string) => {
-    const IconComponent =
-      (LucideIcons as Record<string, React.ComponentType<{ className: string }>>)[
-        iconName
-      ] || LucideIcons.Star;
-    return IconComponent;
+    const IconComponent = (LucideIcons as any)[iconName] || LucideIcons.Star;
+    return IconComponent as React.ComponentType<{ className?: string }>;
   };
 
   return (
